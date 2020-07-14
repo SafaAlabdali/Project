@@ -1,5 +1,5 @@
 %read 
-function A=read()
+function [A,rhs,na]=read()
 fileID = fopen('dumpMatrix000.ymat','r');
 % Read record 1: 3 32bit integers
 data = fread(fileID,3,'int32');
@@ -23,6 +23,6 @@ A(i,colIdx(k-na)+1) = values(k+1);
 end
 end
 %plot(1:size(rhs),rhs)
-spy (A)
+%spy (A)
 
 end 
