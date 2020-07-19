@@ -1,17 +1,17 @@
 %format shortEng
 format compact
 
- alpha=1;
- beta=1E4;
- % residual 
- [r ,k] = Jacobi_D( alpha , beta);
+ tic
+ [A,b,N]=read();
+ [r ,k] = Jacobi_schur(A,b,N)  % it returns residual and number of iterations to reach specific tolerance 
+ toc
  [r(1), r(10), r(50),r(100)]
 
  semilogy(1:k,r);       
   
  legend ('Residual');
  
- title(['alpha =',num2str(alpha),'Beta =',num2str(beta)])
+ title(['The residual up tp ',num2str(k),'iterations'])
 
 
 

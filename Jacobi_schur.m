@@ -1,13 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This program test Jacobi Method using tridiagonal matrix T 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [res ,k]=Jacobi_schur(alpha,beta)
-
-[A,b,N]=read(); % read matrix and RHS 
-Lx=1.0;         % Physical size of the domain in X-direction
-Ly=0.1;         % Physical size of the domain in Y-direction
-dx=Lx/N;
-dy=Ly/N;
+function [res ,k]=Jacobi_schur(A,b,N)
 
 u0=zeros(N,1);   % initial vector 
 res_0=norm(A*u0-b); % initial residual 

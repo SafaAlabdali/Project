@@ -2,13 +2,7 @@
 % This program test Jacobi Method using diagonal matrix DT 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [res,k]=Jacobi_D(alpha,beta)
-
-[A,b,N]=read(); % read matrix and RHS 
-Lx=1.0;         % Physical size of the domain in X-direction
-Ly=0.1;         % Physical size of the domain in Y-direction
-dx=Lx/N;
-dy=Ly/N;
+function [res,k]=Jacobi_D(A,b,N)
 
 % construct tridiagonal mat 
 T = zeros(N,N);
