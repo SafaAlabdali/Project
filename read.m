@@ -16,7 +16,10 @@ values = fread(matfile,nija,'double');
 % Read record 4: na 64bit doubles
 rhs = fread(matfile,na,'double');
 fclose(matfile);
-A = diag(values(1:na));
+A = sparse(na,na);
+for k=1:na
+    A(k,k) = values(k);
+end
 for i=1:na
 for k=rowPtr(i):rowPtr(i+1)-1
 A(i,colIdx(k-na)+1) = values(k+1);
