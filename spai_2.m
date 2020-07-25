@@ -13,7 +13,7 @@ assert(all(logical(diag(A))),"A can not have zero diagonal entries");
 assert(all(logical(diag(S))),"S can not have zero diagonal entries");
 
 % Initialise M to zero matrix
-M = sparse(m,n);
+M = sparse(n,n);
 % Loop over columns of M
 for j=1:n
     % find non-zero row-indices of column vector m_j with (m_j)_k = M_{kj}
@@ -26,7 +26,7 @@ for j=1:n
     A_j = A(I_j,J_j);
     % Construct unit vector of the correct size
     e_j = zeros(size(I_j)); % initialise to zero
-    e_j(find(J_j==j))=1;    % insert 1 at the correct position
+    e_j(find(I_j==j))=1;    % insert 1 at the correct position
     % Find min_{m_j} ||A_j.m_j - e_j||
     m_j = A_j\e_j;
     % Scatter elements back to matrix M, using the index set J_j
